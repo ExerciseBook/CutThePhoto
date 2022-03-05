@@ -48,6 +48,7 @@ window.onload = function () {
   var cropper = new Cropper(image, options);
   var originalImageURL = image.src;
   var uploadedImageType = 'image/jpeg';
+  var fixedType = 'image/jpeg';
   var uploadedImageName = 'cropped.jpg';
   var uploadedImageURL;
 
@@ -175,7 +176,7 @@ window.onload = function () {
             console.log(e.message);
           }
 
-          if (uploadedImageType === 'image/jpeg') {
+          if (fixedType === 'image/jpeg') {
             if (!data.option) {
               data.option = {};
             }
@@ -208,7 +209,7 @@ window.onload = function () {
 
             if (!download.disabled) {
               download.download = uploadedImageName;
-              download.href = result.toDataURL(uploadedImageType);
+              download.href = result.toDataURL(fixedType);
             }
           }
 
